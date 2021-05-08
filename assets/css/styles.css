@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Freckle+Face&family=Roboto:wght@300;400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue-color: #10adc6;
+  --blue-color-dark: #262c3a;
+  --green-color-dark: #01ac2c;
+  --white-color: #fff;
+  --black-color: #303030;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--blue-color-dark);
+  color: var(--white-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Freckle Face", cursive;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 1360px;
+  margin: auto;
+}
+
+.heading {
+  margin: 5rem 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading span {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-family: "Freckle Face", cursive;
+}
+
+.heading img {
+  width: 100%;
+  max-width: 600px;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-tab .nav-link {
+  color: var(--white-color);
+  border-radius: 5px;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  font-family: "Freckle Face", cursive;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.nav-tab .nav-link:hover {
+  background: rgba(1, 172, 44, 0.5);
+}
+
+.nav-tab .nav-link.active {
+  background: var(--green-color-dark);
+}
+
+.character-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  gap: 1rem;
+  margin: 2rem 30px;
+}
+
+.character-wrap .card {
+  background: var(--black-color);
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+}
+
+.character-wrap .card .card-img {
+  width: 100%;
+  height: 300px;
+  border-radius: 5px 5px 0 0;
+  object-fit: contain;
+}
+
+.character-wrap .card .card-title {
+  margin-bottom: 10px;
+}
+
+.character-wrap .card .card-body {
+  padding: 1rem;
+  text-align: center;
+}
+
+.character-wrap .card .card-body.text-left {
+  text-align: left;
+}
+
+.character-wrap .card .card-body ul li {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.character-wrap .card .card-body button {
+  background: var(--blue-color);
+  color: var(--white-color);
+  border-radius: 5px;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+}
+
+.character-wrap .card .card-body button:hover {
+  background: #0d95aa;
+}
+
+.character-wrap .img {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.character-wrap .img img {
+  height: 100%;
+  width: 100%;
+}
+
+.character-wrap .img::after {
+  content: attr(data-name);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  opacity: 0;
+  font-size: 1.5rem;
+  font-family: "Freckle Face", cursive;
+  transition: 250ms ease-in;
+  text-align: center;
+}
+
+.character-wrap .img:hover::after {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.character-wrap .img:hover .overlay {
+  opacity: 1;
+}
+
+.character-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 172, 44, 0.5);
+  opacity: 0;
+  transition: 250ms ease-in;
+}
+
+.go-back-btn {
+  display: none;
+  justify-content: center;
+}
+
+.go-back-btn [data-back] {
+  padding: 10px 20px;
+  background: var(--green-color-dark);
+  color: var(--white-color);
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  font-family: "Freckle Face", cursive;
+  cursor: pointer;
+}
+
+.go-back-btn [data-back]:hover {
+  background: #009225;
+}
+
+.go-back-btn.show {
+  display: flex;
+}
+
+.episode .card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.episode .card-body div {
+  margin: 10px 0;
+}
+
+.location {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  display: none;
+  flex-wrap: wrap;
+  max-width: 900px;
+  justify-content: center;
+  gap: 5px;
+  margin: auto;
+  padding: 2rem 30px 4rem 30px;
+}
+
+.pagination.show {
+  display: flex;
+}
+
+.pagination li {
+  background: transparent;
+  border: solid 1px var(--blue-color);
+  padding: 5px;
+  list-style: none;
+  cursor: pointer;
+  width: 32px;
+  text-align: center;
+  font-family: "Freckle Face", cursive;
+  border-radius: 3px;
+}
+
+.pagination li:hover {
+  background: rgba(16, 173, 198, 0.5);
+}
+
+.pagination li.active {
+  background: var(--blue-color);
+}
+
+/* loader */
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: var(--blue-color);
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+/* Media Queries */
+
+@media (max-width: 580px) {
+  .character-wrap .card {
+    max-width: 350px;
+  }
+
+  .character-wrap .card .card-img {
+    height: initial;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-tab {
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+  }
+
+  .nav-tab .nav-link {
+    width: 100%;
+  }
+}
