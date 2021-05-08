@@ -53,7 +53,6 @@ function queryEpisodesData(variables) {
     })
     .catch((err) => {
       characterWrap.innerHTML = `<h1>There was an error occured</h1>`;
-      console.log(err);
     });
 }
 
@@ -93,7 +92,6 @@ function queryEpisodeData(variables) {
           // make popUp using data
           characterWrap.innerHTML = "";
           characters.forEach((char) => {
-            console.log(char.name);
             characterWrap.innerHTML += `
               <div class="img" data-name="${char.name}">
                 <img src="${char.image}" alt="">
@@ -102,6 +100,9 @@ function queryEpisodeData(variables) {
           });
           backBtnCover.classList.add("show");
           goBackPage(backBtn);
+        })
+        .catch((err) => {
+          characterWrap.innerHTML = `<h1>There was an error occured</h1>`;
         });
     });
   });
